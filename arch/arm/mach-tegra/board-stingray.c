@@ -401,6 +401,7 @@ static struct tegra_w1_platform_data tegra_w1_pdata = {
 	.timings = &tegra_w1_platform_timings,
 };
 
+//ram_console: got buffer at 1ff00000, size 100000
 static struct resource ram_console_resources[] = {
 	{
 		/* .start and .end filled in later */

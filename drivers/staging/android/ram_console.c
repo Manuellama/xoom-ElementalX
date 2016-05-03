@@ -180,13 +180,13 @@ ram_console_save_old(struct ram_console_buffer *buffer, const char *bootinfo,
 			size = buffer->data + ram_console_buffer_size - block;
 		numerr = ram_console_decode_rs8(block, size, par);
 		if (numerr > 0) {
-#if 0
+#if 1
 			printk(KERN_INFO "ram_console: error in block %p, %d\n",
 			       block, numerr);
 #endif
 			ram_console_corrected_bytes += numerr;
 		} else if (numerr < 0) {
-#if 0
+#if 1
 			printk(KERN_INFO "ram_console: uncorrectable error in "
 			       "block %p\n", block);
 #endif
@@ -251,6 +251,7 @@ static int __init ram_console_init(struct ram_console_buffer *buffer,
 	ram_console_buffer_size =
 		buffer_size - sizeof(struct ram_console_buffer);
 
+  //ram_console: buffer   (null), invalid size 0, datasize 4294967284
 	if (ram_console_buffer_size > buffer_size) {
 		pr_err("ram_console: buffer %p, invalid size %zu, "
 		       "datasize %zu\n", buffer, buffer_size,
